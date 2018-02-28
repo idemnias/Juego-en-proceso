@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 377197275}
   - component: {fileID: 377197274}
   - component: {fileID: 377197278}
+  - component: {fileID: 377197279}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   jumpKey: 32
-  jumpForce: {x: 0, y: 0}
+  jumpForce: 2000
 --- !u!95 &377197275
 Animator:
   serializedVersion: 3
@@ -305,7 +306,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377197273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41, y: -1.22, z: 0}
+  m_LocalPosition: {x: -1.19, y: -0.51, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -325,12 +326,27 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!70 &377197279
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377197273}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.034526348, y: 0}
+  m_Size: {x: 0.22025716, y: 0.4}
+  m_Direction: 0
 --- !u!1 &515876686
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +480,7 @@ GameObject:
   - component: {fileID: 1547703892}
   - component: {fileID: 1547703894}
   - component: {fileID: 1547703893}
+  - component: {fileID: 1547703895}
   m_Layer: 0
   m_Name: Foregound
   m_TagString: Untagged
@@ -939,7 +956,7 @@ Tilemap:
   - first: {x: -7, y: -5, z: 0}
     second:
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1201,8 +1218,8 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300300, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 13
     m_Data: {fileID: 21300302, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
   - m_RefCount: 1
@@ -1219,8 +1236,8 @@ Tilemap:
     m_Data: {fileID: 21300132, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300150, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300300, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300382, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
   - m_RefCount: 1
@@ -1303,6 +1320,19 @@ Tilemap:
     m_DirtyIndex: 0
   - serializedVersion: 1
     m_DirtyIndex: 0
+--- !u!19719996 &1547703895
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1547703891}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!1 &1939776289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1558,7 @@ Tilemap:
   - first: {x: -7, y: -1, z: 0}
     second:
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1555,16 +1585,16 @@ Tilemap:
     m_Data: {fileID: 21300032, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 21300084, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300102, guid: 7b3e91d919a57414991a3300477b755a, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 9
     m_Data:

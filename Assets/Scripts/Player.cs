@@ -11,8 +11,12 @@ public class Player : MonoBehaviour {
     private Animator animatorPlayer;
     [SerializeField]
     private KeyCode jumpKey = KeyCode.Space;
+
+
     [SerializeField]
-    private Vector2 jumpForce;
+    private float jumpForce = 3000f;
+    private bool isJumping = false;
+
 
     void Start () {
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
@@ -22,17 +26,20 @@ public class Player : MonoBehaviour {
 	
 	private void FixedUpdate () {
         direction.x = Input.GetAxisRaw("Horizontal");
-
+        direction.y = Input.GetAxisRaw("Vertical");
         animatorPlayer.SetInteger("x", (int)direction.x);
-        direction.Normalize();
+        animatorPlayer.SetInteger("y", (int)direction.y);
+
 
         rigidbodyPlayer.velocity = direction * speed;
-        if (Input.GetKeyDown(jumpKey))
+        if (Input.GetKeyDown(jumpKey) && !isJumping)
         {
-            rigidbodyPlayer.AddForce(new Vector2(0, 10));
+            animatorPlayer.SetBool("jump", true);
+            isJumping = true;
+            rigidbodyPlayer.AddForce(Vector2.up * jumpForce * Time.deltaTime);
 
         }
-
+        direction.Normalize();
 
     }
 }
