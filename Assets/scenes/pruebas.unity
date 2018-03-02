@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpHeight: 0.18
-  gravity: 0.3
+  gravity: 0.6
   shootDelay: 0.1
   duckColliderSize: 0.78
   duckColliderOffset: -0.8
