@@ -120,7 +120,7 @@ public class Player_Controller : MonoBehaviour {
         KeyRight = Input.GetKey(KeyCode.RightArrow);
         KeyUp = Input.GetKey(KeyCode.UpArrow);
         KeyDown = Input.GetKey(KeyCode.DownArrow);
-        KeyJump = Input.GetKeyDown(KeyCode.LeftShift);
+        KeyJump = Input.GetKeyDown(KeyCode.Space);
         KeyAction = Input.GetKey(KeyCode.LeftControl);
         KeyJumpOff = KeyDown && KeyJump;
     }
