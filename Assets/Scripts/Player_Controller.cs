@@ -147,7 +147,7 @@ public class Player_Controller : MonoBehaviour {
         }
 
 
-        // спрыгиваем с платформы
+//Salto
         if (onPlatform && KeyJumpOff)
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - pixelSize);
@@ -163,7 +163,7 @@ public class Player_Controller : MonoBehaviour {
 
         if (!onGround) vsp -= gravity * Time.deltaTime;
 
-        // проверяем пол под ногами
+
         if ((vsp < 0) && (CheckCollision(botLeft, Vector2.down, Mathf.Abs(vsp), solid) || CheckCollision(botRight, Vector2.down, Mathf.Abs(vsp), solid)))
         {
             float dist1 = CheckCollisionDistance(botLeft, Vector2.down, Mathf.Abs(vsp), solid);
@@ -173,7 +173,7 @@ public class Player_Controller : MonoBehaviour {
             transform.position = new Vector2(transform.position.x, transform.position.y + vsp + pixelSize / 2);
             vsp = 0;
         }
-        // проверяем платформу под ногами
+
         if ((vsp < 0) && (CheckCollision(botLeft, Vector2.down, Mathf.Abs(vsp), oneway) || CheckCollision(botRight, Vector2.down, Mathf.Abs(vsp), oneway)))
         {
             float dist1 = CheckCollisionDistance(botLeft, Vector2.down, Mathf.Abs(vsp), oneway);
@@ -186,7 +186,7 @@ public class Player_Controller : MonoBehaviour {
 
 
 
-        // проверяем потолок
+
         if ((vsp > 0) && (CheckCollision(topLeft, Vector2.up, vsp, solid) || CheckCollision(topRight, Vector2.up, vsp, solid)))
         {
             float dist1 = CheckCollisionDistance(topLeft, Vector2.up, vsp, solid);
@@ -197,7 +197,7 @@ public class Player_Controller : MonoBehaviour {
             vsp = 0;
         }
 
-        // проверяем стену справа
+
         if ((hsp > 0) && (CheckCollision(topRight, Vector2.right, hsp, solid) || CheckCollision(botRight, Vector2.right, hsp, solid)))
         {
             float dist1 = CheckCollisionDistance(topRight, Vector2.right, hsp, solid);
@@ -208,7 +208,7 @@ public class Player_Controller : MonoBehaviour {
             hsp = 0;
         }
 
-        // проверяем стену слева
+
         if ((hsp < 0) && (CheckCollision(topLeft, Vector2.left, Mathf.Abs(hsp), solid) || CheckCollision(botLeft, Vector2.left, Mathf.Abs(hsp), solid)))
         {
             float dist1 = CheckCollisionDistance(topLeft, Vector2.left, Mathf.Abs(hsp), solid);
@@ -270,7 +270,7 @@ public class Player_Controller : MonoBehaviour {
     //    shootDelayCounter -= Time.deltaTime;
     //}
 
-    // Рассчитать направление
+    // Calcular Direccion
     void CalculateDirection()
     {
         if (KeyUp && !KeyRight && !KeyLeft && !KeyDown)
@@ -320,13 +320,13 @@ public class Player_Controller : MonoBehaviour {
     //    if (direction == 1) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[3]);
     //}
 
-    // Проверка столкновения
+    // Checkear colision
     private bool CheckCollision(Vector2 raycastOrigin, Vector2 direction, float distance, LayerMask layer)
     {
         return Physics2D.Raycast(raycastOrigin, direction, distance, layer);
     }
 
-    // Проверка дистанции до столкновения
+    // Checkear distancia de colision
     private float CheckCollisionDistance(Vector2 raycastOrigin, Vector2 direction, float distance, LayerMask layer)
     {
         int i = 0;
@@ -335,14 +335,14 @@ public class Player_Controller : MonoBehaviour {
             i++;
 
             if (distance > pixelSize) distance -= pixelSize;
-            else distance = pixelSize; /// может забаговаться
+            else distance = pixelSize;
 
             if (i > 1000) return 0;
         }
         return distance;
     }
 
-    // пересчитать углы
+    // Calcular colliders
     private void CalculateBounds()
     {
         Bounds b = GetComponent<BoxCollider2D>().bounds;
@@ -352,7 +352,7 @@ public class Player_Controller : MonoBehaviour {
         botRight = new Vector2(b.max.x, b.min.y);
     }
 
-    // Анимация
+    // Animar movimiento
     private void Animate()
     {
         for (int i = 0; i < animators.Length; i++)

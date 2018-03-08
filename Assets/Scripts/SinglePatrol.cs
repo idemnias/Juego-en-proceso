@@ -12,7 +12,7 @@ public class SinglePatrol : MonoBehaviour {
     private bool isGoingRight;
 	// Use this for initialization
 	void Start () {
-        if (isGoingRight)
+        if (!isGoingRight)
         {
             transform.position = startPoint.transform.position;
         }
@@ -29,14 +29,16 @@ public class SinglePatrol : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position,endPoint.transform.position, Speed * Time.deltaTime);
             if(transform.position == endPoint.transform.position)
             isGoingRight = false;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         if(!isGoingRight)
         {
             transform.position = Vector3.MoveTowards(transform.position, startPoint.transform.position, Speed * Time.deltaTime);
             if (transform.position == startPoint.transform.position)
                 isGoingRight = true;
-        }       
-	}
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+    }
 
     private void OnDrawGizmos()
     {
