@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour {
 
-    //private GameObject currentProjectile;
-    //public GameObject basicProjectile;
-    //public GameObject ProjectileM;
-    //public GameObject ProjectileF;
-    //public GameObject ProjectileS;
-    //public GameObject ProjectileL;
+    private GameObject currentProjectile;
+    public GameObject basicProjectile;
+    public GameObject ProjectileM;
+    public GameObject ProjectileF;
+    public GameObject ProjectileS;
+    public GameObject ProjectileL;
 
 
     private BoxCollider2D myColl;
@@ -29,11 +29,11 @@ public class Player_Controller : MonoBehaviour {
 
     public float pixelSize;
 
-    //public float[] shootAngles;
-    //private Quaternion rot;
+    public float[] shootAngles;
+    private Quaternion rot;
 
-    //private Transform currentShootPoint;
-    //public Transform[] shootPoints;
+    private Transform currentShootPoint;
+    public Transform[] shootPoints;
 
 
     public int direction;
@@ -69,10 +69,10 @@ public class Player_Controller : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //currentProjectile = basicProjectile;
+        currentProjectile = basicProjectile;
         animators = GetComponentsInChildren<Animator>();
         shootDelayCounter = 0;
-        //rot = new Quaternion(0, 0, 0, 0);
+        rot = new Quaternion(0, 0, 0, 0);
         myColl = GetComponent<BoxCollider2D>();
         originColliderSize = myColl.size.y;
         originColliderOffset = myColl.offset.y;
@@ -108,11 +108,11 @@ public class Player_Controller : MonoBehaviour {
         }
 
         CalculateDirection();
-        //CalculateShootAngles();
-        //CalculateShootPoint();
+        CalculateShootAngles();
+        CalculateShootPoint();
         Animate();
         Move();
-        //Shoot();
+        Shoot();
     }
     void GetInput()
     {
@@ -226,49 +226,49 @@ public class Player_Controller : MonoBehaviour {
     }
 
     // Стрельба
-    //private void Shoot()
-    //{
-    //    if (KeyAction && shootDelayCounter <= 0)
-    //    {
-    //        if ((currentProjectile == basicProjectile) && FindObjectsOfType<Projectile>().Length < 4)
-    //        {
-    //            Instantiate(currentProjectile, currentShootPoint.position, rot);
-    //            shootDelayCounter = shootDelay;
-    //        }
-    //        if (currentProjectile == ProjectileM)
-    //        {
-    //            Instantiate(currentProjectile, currentShootPoint.position, rot);
-    //            shootDelayCounter = shootDelay;
-    //        }
-    //        if ((currentProjectile == ProjectileF) && FindObjectsOfType<Projectile>().Length < 4)
-    //        {
-    //            Instantiate(currentProjectile, currentShootPoint.position, rot);
-    //            shootDelayCounter = shootDelay;
-    //        }
-    //        if ((currentProjectile == ProjectileS) && FindObjectsOfType<Projectile>().Length < 10)
-    //        {
-    //            Instantiate(currentProjectile, currentShootPoint.position, rot);
-    //            shootDelayCounter = shootDelay;
-    //        }
-    //        if (currentProjectile == ProjectileL)
-    //        {
-    //            Projectile[] projectile = FindObjectsOfType<Projectile>();
-    //            foreach (Projectile p in projectile)
-    //            {
-    //                Destroy(p.gameObject);
-    //            }
-    //            ProjectileLaserShell[] shells = FindObjectsOfType<ProjectileLaserShell>();
-    //            foreach (ProjectileLaserShell s in shells)
-    //            {
-    //                Destroy(s.gameObject);
-    //            }
-    //            Instantiate(currentProjectile, currentShootPoint.position, rot);
-    //            shootDelayCounter = shootDelay;
-    //        }
+    private void Shoot()
+    {
+        if (KeyAction && shootDelayCounter <= 0)
+        {
+            if ((currentProjectile == basicProjectile) && FindObjectsOfType<Projectile>().Length < 4)
+            {
+                Instantiate(currentProjectile, currentShootPoint.position, rot);
+                shootDelayCounter = shootDelay;
+            }
+            if (currentProjectile == ProjectileM)
+            {
+                Instantiate(currentProjectile, currentShootPoint.position, rot);
+                shootDelayCounter = shootDelay;
+            }
+            if ((currentProjectile == ProjectileF) && FindObjectsOfType<Projectile>().Length < 4)
+            {
+                Instantiate(currentProjectile, currentShootPoint.position, rot);
+                shootDelayCounter = shootDelay;
+            }
+            if ((currentProjectile == ProjectileS) && FindObjectsOfType<Projectile>().Length < 10)
+            {
+                Instantiate(currentProjectile, currentShootPoint.position, rot);
+                shootDelayCounter = shootDelay;
+            }
+            if (currentProjectile == ProjectileL)
+            {
+                Projectile[] projectile = FindObjectsOfType<Projectile>();
+                foreach (Projectile p in projectile)
+                {
+                    Destroy(p.gameObject);
+                }
+                ProjectileLaserShell[] shells = FindObjectsOfType<ProjectileLaserShell>();
+                foreach (ProjectileLaserShell s in shells)
+                {
+                    Destroy(s.gameObject);
+                }
+                Instantiate(currentProjectile, currentShootPoint.position, rot);
+                shootDelayCounter = shootDelay;
+            }
 
-    //    }
-    //    shootDelayCounter -= Time.deltaTime;
-    //}
+        }
+        shootDelayCounter -= Time.deltaTime;
+    }
 
     // Calcular Direccion
     void CalculateDirection()
@@ -296,29 +296,29 @@ public class Player_Controller : MonoBehaviour {
     }
 
     // Вычислить точку для стрельбы
-    //void CalculateShootPoint()
-    //{
-    //    if (onGround && direction == 8) currentShootPoint = shootPoints[0];
-    //    if (!jumped && (direction == 9 || direction == 7)) currentShootPoint = shootPoints[1];
-    //    if (!jumped && (direction == 4 || direction == 6)) currentShootPoint = shootPoints[2];
-    //    if (!jumped && (direction == 1 || direction == 3)) currentShootPoint = shootPoints[3];
-    //    if (!jumped && KeyDown) currentShootPoint = shootPoints[4];
-    //    if (!onGround && KeyDown) currentShootPoint = shootPoints[2];
-    //    if (jumped) currentShootPoint = transform;
-    //}
+    void CalculateShootPoint()
+    {
+        if (onGround && direction == 8) currentShootPoint = shootPoints[0];
+        if (!jumped && (direction == 9 || direction == 7)) currentShootPoint = shootPoints[1];
+        if (!jumped && (direction == 4 || direction == 6)) currentShootPoint = shootPoints[2];
+        if (!jumped && (direction == 1 || direction == 3)) currentShootPoint = shootPoints[3];
+        if (!jumped && KeyDown) currentShootPoint = shootPoints[4];
+        if (!onGround && KeyDown) currentShootPoint = shootPoints[2];
+        if (jumped) currentShootPoint = transform;
+    }
 
-    // Рассчитать углы стрельбы
-    //void CalculateShootAngles()
-    //{
-    //    if (direction == 8) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[0]);
-    //    if (direction == 9) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -shootAngles[1]);
-    //    if (direction == 6) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -shootAngles[2]);
-    //    if (direction == 3) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -shootAngles[3]);
-    //    if (direction == 2) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[4]);
-    //    if (direction == 7) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[1]);
-    //    if (direction == 4) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[2]);
-    //    if (direction == 1) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[3]);
-    //}
+    //Рассчитать углы стрельбы
+    void CalculateShootAngles()
+    {
+        if (direction == 8) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[0]);
+        if (direction == 9) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -shootAngles[1]);
+        if (direction == 6) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -shootAngles[2]);
+        if (direction == 3) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -shootAngles[3]);
+        if (direction == 2) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[4]);
+        if (direction == 7) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[1]);
+        if (direction == 4) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[2]);
+        if (direction == 1) rot = Quaternion.Euler(transform.rotation.x, transform.rotation.y, shootAngles[3]);
+    }
 
     // Checkear colision
     private bool CheckCollision(Vector2 raycastOrigin, Vector2 direction, float distance, LayerMask layer)
@@ -360,7 +360,7 @@ public class Player_Controller : MonoBehaviour {
             animators[i].SetBool("OnGround", onGround);
             animators[i].SetBool("Jumped", jumped);
             animators[i].SetBool("Moving", moving);
-            //animators[i].SetBool("Shooting", KeyAction);
+            animators[i].SetBool("Shooting", KeyAction);
             animators[i].SetBool("KeyDown", KeyDown);
             animators[i].SetFloat("VSP", vsp);
             animators[i].SetInteger("Direction", direction);
@@ -368,33 +368,33 @@ public class Player_Controller : MonoBehaviour {
         }
     }
 
-    // Сменить оружие
-    //public void ChangeWeapon(int type)
-    //{
-    //    /*
-    //    * 0 - R
-    //    * 1 - M
-    //    * 2 - F
-    //    * 3 - S
-    //    * 4 - L
-    //    */
-    //    switch (type)
-    //    {
-    //        case 0:
-    //            break;
-    //        case 1:
-    //            currentProjectile = ProjectileM;
-    //            break;
-    //        case 2:
-    //            currentProjectile = ProjectileF;
-    //            break;
-    //        case 3:
-    //            currentProjectile = ProjectileS;
-    //            break;
-    //        case 4:
-    //            currentProjectile = ProjectileL;
-    //            break;
-    //    }
+    //Сменить оружие
+    public void ChangeWeapon(int type)
+    {
+        /*
+        * 0 - R
+        * 1 - M
+        * 2 - F
+        * 3 - S
+        * 4 - L
+        */
+        switch (type)
+        {
+            case 0:
+                break;
+            case 1:
+                currentProjectile = ProjectileM;
+                break;
+            case 2:
+                currentProjectile = ProjectileF;
+                break;
+            case 3:
+                currentProjectile = ProjectileS;
+                break;
+            case 4:
+                currentProjectile = ProjectileL;
+                break;
+        }
 
-    //}
+    }
 }
