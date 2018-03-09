@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: b9bef846b1c01af4ca90b6697dfb47ab
-timeCreated: 1519661715
-licenseType: Free
+timeCreated: 1520592402
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: SNES - Contra 3 The Alien Wars - Bill Rizer_0
@@ -145,7 +145,7 @@ TextureImporter:
         x: 3
         y: 387
         width: 32
-        height: 40
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,7 +159,7 @@ TextureImporter:
         x: 41
         y: 387
         width: 30
-        height: 40
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +173,7 @@ TextureImporter:
         x: 75
         y: 387
         width: 40
-        height: 40
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,7 +187,7 @@ TextureImporter:
         x: 114
         y: 388
         width: 45
-        height: 16
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,7 +201,7 @@ TextureImporter:
         x: 164
         y: 388
         width: 44
-        height: 16
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,7 +215,7 @@ TextureImporter:
         x: 212
         y: 388
         width: 54
-        height: 17
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,7 +313,7 @@ TextureImporter:
         x: 7
         y: 309
         width: 30
-        height: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,7 +327,7 @@ TextureImporter:
         x: 44
         y: 309
         width: 29
-        height: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,7 +341,7 @@ TextureImporter:
         x: 78
         y: 308
         width: 34
-        height: 40
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,7 +355,7 @@ TextureImporter:
         x: 118
         y: 308
         width: 29
-        height: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,7 +369,7 @@ TextureImporter:
         x: 47
         y: 263
         width: 40
-        height: 40
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,7 +383,7 @@ TextureImporter:
         x: 90
         y: 262
         width: 41
-        height: 40
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,7 +397,7 @@ TextureImporter:
         x: 134
         y: 264
         width: 40
-        height: 39
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -783,20 +783,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SNES - Contra 3 The Alien Wars - Bill Rizer_16
-      rect:
-        serializedVersion: 2
-        x: 178
-        y: 239
-        width: 2
-        height: 3
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: SNES - Contra 3 The Alien Wars - Bill Rizer_25
       rect:
         serializedVersion: 2
@@ -817,9 +803,9 @@ TextureImporter:
         x: 4
         y: 263
         width: 43
-        height: 40
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -56,6 +56,10 @@ public class Player_Controller : MonoBehaviour {
     private bool onGround;
     private bool jumped;
     private bool moving;
+
+    private bool lookingUp;
+    private bool lookingDown;
+
     private bool onPlatform;
     private bool obsticleOnRight;
     private bool obsticleOnLeft;
@@ -66,6 +70,7 @@ public class Player_Controller : MonoBehaviour {
     private Vector2 topRight;
 
     private Animator[] animators;
+
 
     // Use this for initialization
     void Start () {
@@ -273,17 +278,40 @@ public class Player_Controller : MonoBehaviour {
     // Calcular Direccion
     void CalculateDirection()
     {
+
+        if (!KeyUp)
+        {
+            lookingUp = false;
+        }
+        if (!KeyDown)
+        {
+            lookingDown = false;
+        }
+        
+
         if (KeyUp && !KeyRight && !KeyLeft && !KeyDown)
         {
             direction = 8;
+            lookingUp = true;
         }
         else if (jumped && KeyDown && !KeyRight && !KeyLeft) direction = 2;
         else if (transform.localScale.x > 0)
         {
-            if (KeyUp && KeyRight) direction = 9;
+
+            if (KeyUp && KeyRight)
+            {
+                direction = 9;
+            }
             else if (KeyDown && KeyRight) direction = 3;
-            else if (KeyDown && !KeyRight) direction = 6;
+            else if (KeyDown && !KeyRight)
+            {
+                direction = 6;
+                lookingDown = true;
+            }
             else direction = 6;
+
+            
+
         }
         else if (transform.localScale.x < 0)
         {
@@ -360,6 +388,8 @@ public class Player_Controller : MonoBehaviour {
             animators[i].SetBool("OnGround", onGround);
             animators[i].SetBool("Jumped", jumped);
             animators[i].SetBool("Moving", moving);
+            animators[i].SetBool("LookingUp", lookingUp);
+            animators[i].SetBool("LookingDown", lookingDown);
             animators[i].SetBool("Shooting", KeyAction);
             animators[i].SetBool("KeyDown", KeyDown);
             animators[i].SetFloat("VSP", vsp);
