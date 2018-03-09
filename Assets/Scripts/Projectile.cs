@@ -20,16 +20,16 @@ public class Projectile : MonoBehaviour {
         if (transform.parent != null) Destroy(transform.parent.gameObject);
     }
 
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if(other.tag == "Enemy")
-    //    {
-    //        if (other.GetComponent<EnemyManager>() != null)
-    //        {
-    //            other.GetComponent<EnemyManager>().TakeDamage();
-    //            Destroy(gameObject);
-    //            if (transform.parent != null) Destroy(transform.parent.gameObject);
-    //        }
-    //    }
-    //}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            if (other.GetComponent<EnemyManager>() != null)
+            {
+                other.GetComponent<EnemyManager>().TakeDamage();
+                Destroy(gameObject);
+                if (transform.parent != null) Destroy(transform.parent.gameObject);
+            }
+        }
+    }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 21225756}
   - component: {fileID: 5815386}
   - component: {fileID: 5095916}
+  - component: {fileID: 114741078868081328}
   - component: {fileID: 11449060}
   m_Layer: 0
   m_Name: ProjectileBasic
@@ -113,15 +114,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300038, guid: 7ff5f50d690e3d24b8cbdbe819753aab, type: 3}
+  m_Sprite: {fileID: 21300498, guid: a9d504ccc1a4c7743a00d5d973ad0885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.15, y: 0.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!1001 &100100000
 Prefab:
@@ -134,3 +135,16 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 113014}
   m_IsPrefabParent: 1
+--- !u!114 &114741078868081328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e328f128203c444a95cadad2563f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movespeed: 10
+  spinningSpeed: 0
